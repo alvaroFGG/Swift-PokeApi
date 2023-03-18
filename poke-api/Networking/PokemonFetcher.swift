@@ -2,7 +2,7 @@
 //  PokemonFetcher.swift
 //  poke-api
 //
-//  Created by Alvaro Fuentenebro on 15/3/23.
+//  Created by Alvaro Fuentenebro on 18/3/23.
 //
 
 import Foundation
@@ -20,23 +20,33 @@ class PokemonFetcher: ObservableObject {
     
     func fetchPokemons() {
         
-        isLoading = true
-        
-        let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0")!
-        
-        let task = URLSession.shared.dataTask(with: url) {[unowned self] (data, response, error) in
-            self.isLoading = false
+        for index in 1...20{
+            let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(index)")!
             
-            let decoder = JSONDecoder()
-            if let data = data {
-                do{
-                    let pokemons = try decoder.decode([Pokemon].self, from: data)
-                    print(pokemons)
-                    self.pokemons = pokemons
-                }catch {
-                    print(error)
+            let task = URLSession.shared.dataTask(with: url) {[unowned self] (data, response, error) in
+                
+                let decoder = JSONDecoder()
+                if let data = data {
+                    do{
+                        
+                        let pokemon = try decoder.decode(Pokemon.self, from: data)
+
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.pokemons.append(pokemon)
+                            
+                        }
+                    }catch {
+                        print(error)
+                    }
                 }
             }
+            
+            task.resume()
         }
+        
+        
+        
     }
 }

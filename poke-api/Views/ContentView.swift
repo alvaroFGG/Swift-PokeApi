@@ -7,25 +7,21 @@
 
 import SwiftUI
 
-struct PokemonsView: View {
+struct ContentView: View {
     
+    @StateObject var pokemonFetcher = PokemonFetcher()
     
     var body: some View {
-        
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+
+        if(!pokemonFetcher.isLoading) {
+            PokemonListView(pokemons: pokemonFetcher.pokemons)
         }
-        .padding()
-        
         
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        PokemonsView()
+        ContentView()
     }
 }
