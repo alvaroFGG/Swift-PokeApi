@@ -12,16 +12,20 @@ struct ContentView: View {
     @StateObject var pokemonFetcher = PokemonFetcher()
     
     var body: some View {
-
-        if(!pokemonFetcher.isLoading) {
-            PokemonListView(pokemons: pokemonFetcher.pokemons)
-        }
+        
+            if (pokemonFetcher.isLoading) {
+                LoadingView()
+            }else{
+                PokemonListView(pokemons: pokemonFetcher.pokemons)
+            }
         
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ZStack{
+            ContentView().environmentObject(PokemonFetcher())
+        }
     }
 }

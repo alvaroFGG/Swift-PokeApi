@@ -20,6 +20,8 @@ class PokemonFetcher: ObservableObject {
     
     func fetchPokemons() {
         
+        isLoading = true
+        
         for index in 1...20{
             let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(index)")!
             
@@ -31,12 +33,10 @@ class PokemonFetcher: ObservableObject {
                         
                         let pokemon = try decoder.decode(Pokemon.self, from: data)
 
-                        
                         DispatchQueue.main.async {
-                            
                             self.pokemons.append(pokemon)
-                            
                         }
+                        
                     }catch {
                         print(error)
                     }
@@ -45,6 +45,10 @@ class PokemonFetcher: ObservableObject {
             
             task.resume()
         }
+        
+        isLoading = false
+        
+        
         
         
         

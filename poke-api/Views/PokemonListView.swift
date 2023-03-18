@@ -11,7 +11,23 @@ struct PokemonListView: View {
     let pokemons: [Pokemon]
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        List{
+            ForEach(pokemons) { pokemon in
+                HStack{
+                    
+                    AsyncImage(url: URL(string: pokemon.sprites.front_default)) { phase in
+                        if let image = phase.image {
+                            image
+                        }
+                    }
+                    
+                    Text(pokemon.name.capitalized)
+                }
+            }
+        }
+            
+        
     }
 }
 
