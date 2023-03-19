@@ -12,21 +12,26 @@ struct PokemonListView: View {
     
     var body: some View {
         
-        List{
-            ForEach(pokemons) { pokemon in
-                HStack{
-                    
-                    AsyncImage(url: URL(string: pokemon.sprites.front_default)) { phase in
-                        if let image = phase.image {
-                            image
+        NavigationView{
+            List{
+                ForEach(pokemons) { pokemon in
+                    NavigationLink(destination: PokemonDetailView(pokemon: pokemon)){
+                        HStack{
+                            
+                                AsyncImage(url: URL(string: pokemon.sprites.front_default)) { phase in
+                                    if let image = phase.image {
+                                        image.resizable().frame(width: 80, height: 80)
+                                    }
+                                }
+                                
+                                Text(pokemon.name.capitalized)
+                            
                         }
                     }
-                    
-                    Text(pokemon.name.capitalized)
                 }
             }
         }
-            
+        
         
     }
 }

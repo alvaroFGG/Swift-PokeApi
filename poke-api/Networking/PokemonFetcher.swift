@@ -22,7 +22,7 @@ class PokemonFetcher: ObservableObject {
         
         isLoading = true
         
-        for index in 1...20{
+        for index in 1...100{
             let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(index)")!
             
             let task = URLSession.shared.dataTask(with: url) {[unowned self] (data, response, error) in

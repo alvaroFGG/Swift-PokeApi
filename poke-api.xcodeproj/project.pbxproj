@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38C1956E29C7295D00CC8143 /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1956D29C7295D00CC8143 /* PokemonDetailView.swift */; };
 		38EE408E29C0E31E00BBC089 /* poke_apiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EE408D29C0E31E00BBC089 /* poke_apiApp.swift */; };
 		38EE409029C0E31E00BBC089 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EE408F29C0E31E00BBC089 /* ContentView.swift */; };
 		38EE409229C0E31F00BBC089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38EE409129C0E31F00BBC089 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38C1956D29C7295D00CC8143 /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 		38EE408A29C0E31E00BBC089 /* poke-api.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "poke-api.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EE408D29C0E31E00BBC089 /* poke_apiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poke_apiApp.swift; sourceTree = "<group>"; };
 		38EE408F29C0E31E00BBC089 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				38EE408F29C0E31E00BBC089 /* ContentView.swift */,
 				38F8F31629C5C18E00142EA6 /* PokemonListView.swift */,
 				38F8F31829C6295600142EA6 /* LoadingView.swift */,
+				38C1956D29C7295D00CC8143 /* PokemonDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				38F8F31529C5BDC200142EA6 /* PokemonFetcher.swift in Sources */,
 				38EE408E29C0E31E00BBC089 /* poke_apiApp.swift in Sources */,
 				38EE409D29C0E57400BBC089 /* Pokemon.swift in Sources */,
+				38C1956E29C7295D00CC8143 /* PokemonDetailView.swift in Sources */,
 				38F8F31929C6295600142EA6 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
